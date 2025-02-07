@@ -1,12 +1,12 @@
 from sqlmodel import Session, select
 
-from .models import TransformedString, Payload
+from .models import String, Payload
 
 def get_transformed_string(session: Session, original: str):
-    return session.exec(select(TransformedString).where(TransformedString.original == original)).first()
+    return session.exec(select(String).where(String.original == original)).first()
 
 def create_transformed_string(session: Session, original: str, transformed: str):
-    transformed_string = TransformedString(original=original, transformed=transformed)
+    transformed_string = String(original=original, transformed=transformed)
     session.add(transformed_string)
     session.commit()
     return transformed_string

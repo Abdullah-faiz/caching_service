@@ -1,1 +1,4 @@
 env
+app/__pycache__/
+cache.db
+
